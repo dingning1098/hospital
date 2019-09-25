@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//en"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dn.hospital.dao.PatientDao">
+    <resultMap id="pMap" type="com.dn.hospital.entity.Patient">
+        <result property="id" column="id"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+        <result property="pName" column="p_name"/>
+        <result property="toHosTim" column="to_hos_tim"/>
+    </resultMap>
+    <select id="search" resultMap="pMap">
+        select * from patient
+    </select>
+</mapper>

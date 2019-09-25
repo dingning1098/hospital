@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//en"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dn.hospital.dao.UserDao">
+    <resultMap id="userMap" type="com.dn.hospital.entity.User">
+        <result property="username" column="username"/>
+        <result property="name" column="name"/>
+        <result property="idcard" column="idcard"/>
+        <result property="tel" column="tel"/>
+        <result property="pwd" column="pwd"/>
+    </resultMap>
+    <select id="get" resultMap="userMap">
+        select * from user where username = #{username}
+    </select>
+    <insert id="insert" >
+        insert into user (username,pwd,idcard,name,tel)
+        values (#{username},#{pwd},#{idcard},#{name},#{tel})
+    </insert>
+    <delete id="delete">
+        delete from user where username = #{username}
+    </delete>
+    <update id="update">
+        update user set pwd=#{pwd},
+        idcard=#{idcard},
+        tel=#{tel},
+        name=#{name}
+        where username = #{username}
+    </update>
+
+</mapper>
